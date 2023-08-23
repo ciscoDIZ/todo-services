@@ -10,8 +10,8 @@ minikube start --driver=virtualbox --cpus 4 --memory "8192mb"
 eval $(minikube -p minikube docker-env)
 kubectl delete service postgres    
 kubectl delete deployment postgres
-kubectl delete service product-inventory-service      
-kubectl delete deployment product-inventory-service
+kubectl delete service jobs-service      
+kubectl delete deployment jobs-service
 kubectl delete service sales-service      
 kubectl delete deployment sales-service
 kubectl delete service order-service      

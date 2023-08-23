@@ -5,7 +5,7 @@ create table users (
     password varchar,
     roles varchar default 'user',
     created_at timestamp,
-    updated_at timestamp,
+    last_update_at timestamp,
     primary key (id)
 );
 

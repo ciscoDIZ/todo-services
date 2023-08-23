@@ -13,22 +13,22 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:12
+          image: postgres:14
           ports:
             - containerPort: 5432
               protocol: TCP
           env:
             - name: POSTGRES_DB
-              value: kineteco
+              value: todo
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: kineteco-credentials
+                  name: todo-credentials
                   key: username
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: kineteco-credentials
+                  name: todo-credentials
                   key: password
 ---
 apiVersion: v1
