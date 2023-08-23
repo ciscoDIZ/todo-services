@@ -1,18 +1,16 @@
-package com.ciscoadiz.homework.resource;
+package com.ciscoadiz.todo.authservice.resource;
 
-import com.ciscoadiz.homework.model.User;
-import com.ciscoadiz.homework.service.UserService;
 
+import com.ciscoadiz.todo.authservice.model.User;
+import com.ciscoadiz.todo.authservice.service.UserService;
 import io.quarkus.hibernate.reactive.panache.Panache;
-import io.quarkus.hibernate.reactive.panache.common.WithSession;
-import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
 import io.smallrye.mutiny.Uni;
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
 import java.util.List;
 import java.util.UUID;
 

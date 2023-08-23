@@ -1,7 +1,8 @@
-package com.ciscoadiz.homework.resource;
+package com.ciscoadiz.todo.authservice.resource;
 
-import com.ciscoadiz.homework.model.User;
-import com.ciscoadiz.homework.service.UserService;
+
+import com.ciscoadiz.todo.authservice.model.User;
+import com.ciscoadiz.todo.authservice.service.UserService;
 import io.quarkus.hibernate.reactive.panache.Panache;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;

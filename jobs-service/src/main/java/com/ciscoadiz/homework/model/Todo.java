@@ -20,14 +20,6 @@ public class Todo extends PanacheEntityBase {
     public String title;
     public String description;
 
-    @ManyToOne
-    @JoinColumns(
-            value = @JoinColumn(name = "user_id"),
-            foreignKey = @ForeignKey(name = "users_todos_fk")
-    )
-    @JsonBackReference
-    public User user;
-
     @Enumerated(EnumType.STRING)
     public TodoStatus status;
 

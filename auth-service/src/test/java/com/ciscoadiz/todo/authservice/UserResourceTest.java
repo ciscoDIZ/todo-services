@@ -1,20 +1,20 @@
-package com.ciscoadiz.homework;
+package com.ciscoadiz.todo.authservice;
 
+
+import com.ciscoadiz.todo.authservice.model.User;
 import io.quarkus.test.junit.QuarkusTest;
-import org.jboss.logging.Logger;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.jboss.logging.Logger;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 
 @QuarkusTest

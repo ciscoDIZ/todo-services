@@ -1,4 +1,4 @@
-package com.ciscoadiz.homework.flyway;
+package com.ciscoadiz.todo.authservice.flyway;
 
 import io.quarkus.runtime.Startup;
 import io.quarkus.scheduler.Scheduler;

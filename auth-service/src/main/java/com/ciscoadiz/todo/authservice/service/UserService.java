@@ -1,21 +1,16 @@
-package com.ciscoadiz.homework.service;
+package com.ciscoadiz.todo.authservice.service;
 
-import com.ciscoadiz.homework.model.User;
+
+import com.ciscoadiz.todo.authservice.model.User;
 import io.quarkus.elytron.security.common.BcryptUtil;
 import io.quarkus.hibernate.reactive.panache.Panache;
 import io.smallrye.mutiny.Uni;
-
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.hibernate.exception.ConstraintViolationException;
 import org.jboss.logging.Logger;
 
-
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @ApplicationScoped
@@ -41,20 +36,20 @@ public class UserService {
     }
 
     public Uni<User> findById(UUID id) {
-        return  User.findByIdWithTodos(id);
+        return  User.findById(id);
     }
 
     public Uni<User> findByUsername(String username) {
-        return User.findByUsernameWithTodos(username);
+        return User.find("username",username).firstResult();
     }
 
     public Uni<List<User>> findAll() {
-        return User.getSession().flatMap(session -> session.createNamedQuery("User.findAllWithTodos", User.class).getResultList());
+        return User.findAll().list();
     }
 
     public Uni<User> updateById(UUID id, User user) {
         return Panache.withTransaction(() -> findById(id)
-                .onItem().<User>transformToUni(manufactured -> {
+                .onItem().transformToUni(manufactured -> {
                     manufactured.name = user.name != null
                             ? user.name
                             : manufactured.name;
