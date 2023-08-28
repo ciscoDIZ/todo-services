@@ -20,7 +20,7 @@ public class AuthResourceTest {
                .body("{\"name\": \"irrelevant\", \"username\": \"irrelevant\", \"password\": \"irrelevant\"}")
                .contentType(MediaType.APPLICATION_JSON)
                .when()
-               .post("/api/auth").then()
+               .post("/auth").then()
                .statusCode(Response.Status.CREATED.getStatusCode())
                .extract().headers().get("Location").getValue();
         String[] locationAsArray = location.split("/");

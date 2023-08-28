@@ -24,23 +24,21 @@ public class UserService {
 
 
     public Uni<User> create(User user) {
-        return Panache.withTransaction(
-                () -> Uni.createFrom().item(user).map(manufactured -> {
-                                    manufactured.password = BcryptUtil
-                                            .bcryptHash(manufactured.password, iterationCount);
-                                    return manufactured;
-                                }
-                        )
+        return Panache.withTransaction(() -> Uni.createFrom().item(user).map(manufactured -> {
+                            manufactured.password = BcryptUtil
+                                    .bcryptHash(manufactured.password, iterationCount);
+                            return manufactured;
+                        })
                         .flatMap(created -> created.persist())
         );
     }
 
     public Uni<User> findById(UUID id) {
-        return  User.findById(id);
+        return User.findById(id);
     }
 
     public Uni<User> findByUsername(String username) {
-        return User.find("username",username).firstResult();
+        return User.find("username", username).firstResult();
     }
 
     public Uni<List<User>> findAll() {

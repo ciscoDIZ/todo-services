@@ -25,7 +25,7 @@ public class UserResourceTest {
     @Test
     public void get_by_id_should_be_ok_and_have_a_valid_body() {
         User user = given()
-                .get("/api/users/{id}", "026ec571-f271-4ab4-95e5-00b49c260795")
+                .get("/users/{id}", "026ec571-f271-4ab4-95e5-00b49c260795")
                 .then().statusCode(200)
                 .contentType(MediaType.APPLICATION_JSON)
                 .extract()
@@ -37,7 +37,7 @@ public class UserResourceTest {
     @Test
     public void get_by_username_should_be_ok_and_have_a_valid_body() {
         User user = given()
-                .get("/api/users/username/{username}", "Pepito")
+                .get("/users/username/{username}", "Pepito")
                 .then()
                 .statusCode(200)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -52,7 +52,7 @@ public class UserResourceTest {
                 .when()
                 .body("{\"username\": \"Pepito\"}")
                 .contentType(MediaType.APPLICATION_JSON)
-                .patch("/api/users/{id}", "026ec571-f271-4ab4-95e5-00b49c260795")
+                .patch("/users/{id}", "026ec571-f271-4ab4-95e5-00b49c260795")
                 .then()
                 .statusCode(Response.Status.ACCEPTED.getStatusCode())
                 .extract()
@@ -64,7 +64,7 @@ public class UserResourceTest {
     public void get_all_should_be_ok_and_have_a_valid_body() {
         List users = given()
                 .when()
-                .get("/api/users")
+                .get("/users")
                 .then().statusCode(200)
                 .extract()
                 .body().as(ArrayList.class);
@@ -75,7 +75,7 @@ public class UserResourceTest {
     public void delete_by_id_should_be_no_content() {
         given().when()
                 .contentType(MediaType.APPLICATION_JSON)
-                .delete("/api/users/{id}", "34c5a104-18ca-4f6e-b219-851d6296a7a5")
+                .delete("/users/{id}", "34c5a104-18ca-4f6e-b219-851d6296a7a5")
                 .then()
                 .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }

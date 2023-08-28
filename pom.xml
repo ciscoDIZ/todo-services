@@ -7,11 +7,16 @@
     <groupId>com.ciscoadiz.todo</groupId>
     <artifactId>todo-services</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    <modules>
+        <module>auth-service</module>
+        <module>jobs-service</module>
+        <module>projects-service</module>
+    </modules>
 </project>

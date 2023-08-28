@@ -1,8 +1,8 @@
-package com.ciscoadiz.homework;
+package com.ciscadiz.todo;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-public class AuthResourceIT extends AuthResourceTest {
+public class ExampleResourceIT extends ExampleResourceTest {
     // Execute the same tests but in packaged mode.
 }
